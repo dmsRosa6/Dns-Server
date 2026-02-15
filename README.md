@@ -4,7 +4,7 @@ This project is a basic DNS server implementation inspired by the [DNS Guide by 
 
 ## Features
 
-- **DNS Query Handling:**  
+- **DNS Resolve:**  
   The server processes DNS queries by reading incoming UDP packets and sending appropriate responses based on the request.
 
 - **Supported Query Types:**  
@@ -21,7 +21,7 @@ This project is a basic DNS server implementation inspired by the [DNS Guide by 
   Implements methods to read and write DNS packets, conforming to the format described in RFC 1035.
 
 - **RESTful API for Zone Management:**  
-  Provides endpoints to create and retrieve DNS records using [Javalin](https://javalin.io/).
+  Provides endpoints to create and retrieve zones using [Javalin](https://javalin.io/).
 
 ## How It Works
 
@@ -29,7 +29,7 @@ This project is a basic DNS server implementation inspired by the [DNS Guide by 
    The server listens for UDP packets on a specified port (default 2053) and parses the DNS query.
 
 2. **Processing Requests:**  
-   The DNS query is parsed into its components (header, questions, etc.) and handled appropriately by the server.
+   The DNS query is parsed into its components (header, questions, etc.) and the resolve process starts on the local zone and the resolve fails goes to a authorative server.
 
 3. **Generating Responses:**  
    The server builds a DNS response packet by setting the proper header flags, including the response code, and adds answers, authorities, and additional resource records as required.
@@ -73,4 +73,5 @@ To further improve the project, the following enhancements could be cool:
 
 ---
 
-This project is a work in progress and aims to serve as a learning tool.
+This project only aims to serve as a learning tool.
+
